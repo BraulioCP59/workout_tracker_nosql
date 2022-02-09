@@ -1,6 +1,9 @@
 # workout_tracker_nosql
 # Unit 18 Nosql Homework: Workout Tracker
 
+mongo db cheat sheet
+https://gist.github.com/bradtraversy/f407d642bdc3b31681bc7e56d95485b6
+
 For this assignment, you'll create a workout tracker. You have already been provided with the front end code in the `Develop` folder. This assignment will require you to create Mongo database with a Mongoose schema and handle routes with Express.
 
 ## User Story
@@ -32,6 +35,8 @@ To deploy an application with a MongoDB database to Heroku, you'll need to set u
   * [Set Up MongoDB Atlas](../04-Important/MongoAtlas-Setup.md)
 
   * [Deploy with Heroku and MongoDB Atlas](../04-Important/MongoAtlas-Deploy.md)
+
+
 
 ## Commit Early and Often
 
