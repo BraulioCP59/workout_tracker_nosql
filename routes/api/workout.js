@@ -1,11 +1,13 @@
 const router = require('express').Router();
-//require some model. 
+const Workout = require('../../models/workout');
+
 
 //get all workouts
 router.get('/', async (req, res) => {
     try
     {
-        res.status(200).json({message: "you hit the get all route!"});
+        const allWorkoutData = await Workout.find();
+        res.status(200).json(allWorkoutData);
     }catch(err)
     {
         res.status(500).json(err);
@@ -27,7 +29,8 @@ router.get('/range', async (req, res) => {
 router.get('/:id', async (req, res) => {
     try
     {
-        res.status(200).json({message: "you hit the get by id route!"});
+        const workoutData = await Workout.findById(req.params.id);
+        res.status(200).json(workoutData);
     }catch(err)
     {
         res.status(500).json(err);
@@ -38,7 +41,8 @@ router.get('/:id', async (req, res) => {
 router.post('/', async (req, res) => {
     try
     {
-        res.status(204).json({message: "you hit the post route!"});
+        const newWorkout = await Workout.create(req.body);
+        res.status(204).json(newWorkout);
     }catch(err)
     {
         res.status(500).json(err);
@@ -49,7 +53,8 @@ router.post('/', async (req, res) => {
 router.put('/:id', async (req, res) => {
     try
     {
-        res.status(204).json({message: "you hit the put by id route!"});
+        const updatedWorkout = await Workout.findByIdAndUpdate(req.params.id, {$push:{exercises:req.body}}, {new: true});
+        res.status(204).json(updatedWorkout);
     }catch(err)
     {
         res.status(500).json(err);
@@ -61,7 +66,8 @@ router.put('/:id', async (req, res) => {
 router.get('/:id', async (req, res) => {
     try
     {
-        res.status(204).json({message: "you hit the delete by id route!"});
+        const deletedWorkout = await Workout.findByIdAndRemove(req.params.id);
+        res.status(204).json({message: "Workout has been successfully deleted!", id: deletedWorkout._id});
     }catch(err)
     {
         res.status(500).json(err);
