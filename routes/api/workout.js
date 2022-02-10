@@ -63,11 +63,11 @@ router.put('/:id', async (req, res) => {
 
 
 //delete a workout by id
-router.get('/:id', async (req, res) => {
+router.delete('/:id', async (req, res) => {
     try
     {
         const deletedWorkout = await Workout.findByIdAndRemove(req.params.id);
-        res.status(204).json({message: "Workout has been successfully deleted!", id: deletedWorkout._id});
+        res.status(200).json({message: "Workout has been successfully deleted!", id: deletedWorkout._id});
     }catch(err)
     {
         res.status(500).json(err);
