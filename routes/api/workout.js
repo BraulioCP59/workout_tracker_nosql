@@ -42,7 +42,7 @@ router.post('/', async (req, res) => {
     try
     {
         const newWorkout = await Workout.create(req.body);
-        res.status(204).json(newWorkout);
+        res.status(201).json(newWorkout);
     }catch(err)
     {
         res.status(500).json(err);
@@ -54,7 +54,7 @@ router.put('/:id', async (req, res) => {
     try
     {
         const updatedWorkout = await Workout.findByIdAndUpdate(req.params.id, {$push:{exercises:req.body}}, {new: true});
-        res.status(204).json(updatedWorkout);
+        res.status(200).json(updatedWorkout);
     }catch(err)
     {
         res.status(500).json(err);
