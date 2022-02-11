@@ -20,13 +20,13 @@ When the user loads the page, they should be given the option to create a new wo
 
 The user should be able to:
 
-  * Add exercises to the most recent workout plan.
+  * Add exercises to the most recent workout plan. - done
 
-  * Add new exercises to a new workout plan.
+  * Add new exercises to a new workout plan. - done
 
-  * View the combined weight of multiple exercises from the past seven workouts on the `stats` page.
+  * View the combined weight of multiple exercises from the past seven workouts on the `stats` page. - done
 
-  * View the total duration of each workout from the past seven workouts on the `stats` page.
+  * View the total duration of each workout from the past seven workouts on the `stats` page. - done
 
 > **Important:** Look into using a MongoDB aggregate function to dynamically add up and return the total duration for each workout. Check out the [MongoDB documentation on the $addFields](https://docs.mongodb.com/manual/reference/operator/aggregation/addFields/), the [MongoDB documentation on the $sum operator](https://docs.mongodb.com/manual/reference/operator/aggregation/sum/), and the [Mongoose documentation on aggregate functions](https://mongoosejs.com/docs/api.html#aggregate_Aggregate) to learn how it can be accomplished.
 

@@ -16,7 +16,20 @@ function calculateTotalWeight(data) {
 }
 
 function populateChart(data) {
-  const durations = data.map(({ totalDuration }) => totalDuration);
+  const durations = data.map((workout) => {
+    let total = 0;
+
+    console.log("Calculating total duration for workout: ", workout._id);
+    
+    workout.exercises.forEach((exercise) => {
+      total += exercise.duration;
+      console.log("adding duration of ", exercise.duration);
+    })
+
+    console.log("total duration ", total);
+    return total;
+  });
+
   const pounds = calculateTotalWeight(data);
 
   const line = document.querySelector('#canvas').getContext('2d');

@@ -18,7 +18,8 @@ router.get('/', async (req, res) => {
 router.get('/range', async (req, res) => {
     try
     {
-        res.status(200).json({message: "you hit the get range route!"});
+        const data = await Workout.find().sort({day: -1}).limit(7);
+        res.status(200).json(data);
     }catch(err)
     {
         res.status(500).json(err);
